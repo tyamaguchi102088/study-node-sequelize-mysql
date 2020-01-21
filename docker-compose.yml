@@ -1,0 +1,27 @@
+version: '3'
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: todo_app_dev_api
+    volumes:
+      - ./:/app
+    ports:
+      - 3000:3000
+    working_dir: "/app"
+    command:
+      sh -c 'npm i & npm run dev'
+  db:
+    image: mysql:8
+    ports: 
+      - 3306:3306
+    container_name: todo_app_dev_mysql
+    volumes: 
+      - ./.docker_container_data/todo_app_dev_mysql:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=dev
+      - MYSQL_USER=docker
+      - MYSQL_PASSWORD=docker
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_PORT=3306
