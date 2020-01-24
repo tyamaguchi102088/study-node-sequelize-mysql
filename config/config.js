@@ -1,18 +1,16 @@
 module.exports = {
   development: {
-    username: "root",
-    password: "root",
-    database: "dev",
-    host: "127.0.0.1",
-    dialect: "mysql",
-    operatorsAliases: false
+    username: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASSWORD,
+    database: process.env.MYSQL_DATABASE,
+    host: process.env.MYSQL_SERVER,
+    dialect: "mysql"
   },
   production: {
-    username: "root",
-    password: null,
-    database: "database_production",
-    host: "127.0.0.1",
-    dialect: "mysql",
-    operatorsAliases: false
+    username: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASSWORD,
+    database: process.env.MYSQL_DATABASE,
+    host: process.env.MYSQL_SERVER,
+    dialect: "mysql"
   }
 }

@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile
     container_name: todo_app_dev_api
     volumes:
-      - ./:/app
+      - ./:/app # TODO 全部パスする必要ないけどとりあえず
     ports:
       - 3000:3000
     working_dir: "/app"
@@ -14,6 +14,12 @@ services:
       sh -c 'npm i & npm run dev'
     links:
       - db
+    environment:
+      - MYSQL_DATABASE=dev
+      - MYSQL_USER=docker
+      - MYSQL_PASSWORD=docker
+      - MYSQL_PORT=3306
+      - MYSQL_SERVER=todo_app_dev_mysql
   db:
     image: mysql:8
     ports: 
@@ -22,10 +28,11 @@ services:
     volumes: 
       - ./.docker_container_data/todo_app_dev_mysql:/var/lib/mysql
     environment:
+      - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=dev
       - MYSQL_USER=docker
       - MYSQL_PASSWORD=docker
-      - MYSQL_ALLOW_EMPTY_PASSWORD=Yes
-      - MYSQL_ROOT_PASSWORD=
       - MYSQL_PORT=3306
+    #  sequel pro使うのに認証方式変える
+    command: --default-authentication-plugin=mysql_native_password
       

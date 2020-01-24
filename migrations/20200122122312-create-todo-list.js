@@ -1,32 +1,36 @@
 'use strict';
 module.exports = {
-  up: (queryInterface, Sequelize) => {
+  up: (queryInterface, Datatype) => {
     return queryInterface.createTable('todo_lists', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER.UNSIGNED
+        type: Datatype.INTEGER.UNSIGNED
       },
       done: {
         allowNull: false,
         defaultValue: false,
-        type: Sequelize.BOOLEAN
+        type: Datatype.BOOLEAN
       },
-      todo: {
+      title: {
         allowNull: false,
-        type: Sequelize.TEXT
+        type: Datatype.STRING
+      },
+      description: {
+        allowNull: false,
+        type: Datatype.TEXT
       },
       created_at: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Datatype.DATE
       },
       updated_at: {
-        type: Sequelize.DATE
+        type: Datatype.DATE
       }
     });
   },
-  down: (queryInterface, Sequelize) => {
+  down: (queryInterface, Datatype) => {
     return queryInterface.dropTable('todo_lists');
   }
 };

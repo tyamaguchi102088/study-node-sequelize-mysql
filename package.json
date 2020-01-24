@@ -7,7 +7,9 @@
     "dev": "nodemon src/",
     "test": "echo \"Error: no test specified\" && exit 1",
     "db:migrate": "node_modules/.bin/sequelize db:migrate --env development",
-    "db:down": "node_modules/.bin/sequelize db:migrate:undo --env development"
+    "db:down": "node_modules/.bin/sequelize db:migrate:undo --env development",
+    "docker:app": "docker exec -it todo_app_dev_api /bin/ash",
+    "docker:sql": "mysql -uroot -p -h 127.0.0.1 --port 3306"
   },
   "author": "",
   "license": "ISC",
