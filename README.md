@@ -2,14 +2,17 @@
 Create todo app using node/sequelize/mysql
 
 # How to start application
+npm i
 docker-compose up
+npm run docker:app
+npm run db:migrate
 
 # schema
 ## todos
 | column        | type(length)   |              |               | 
 | ------------- |:--------------:|:------------:| -------------:| 
 | id            | INT(11)        | PRIMARY KEY  | NOT NULL      | 
-| is_done       | INT(1)         | NOT NULL     | DEFAULT '0'   | 
+| done       | INT(1)         | NOT NULL     | DEFAULT '0'   | 
 | todo          | TEXT           | NOT NULL     |               | 
 | created_at    | DATE           | NOT NULL     |               | 
 | updated_at    | DATE           |              |               |
