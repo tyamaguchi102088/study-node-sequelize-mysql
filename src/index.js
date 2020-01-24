@@ -1,10 +1,10 @@
 'use strict';
 
-// server.js
+import index from './routes';
+import todos from './routes/todos';
+
 const express = require('express');
 const app = express();
-const index = require('./routes/index.js');
-const todos = require('./routes/todos.js');
 
 // for body parser
 app.use(express.json())

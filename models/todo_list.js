@@ -1,5 +1,5 @@
 'use strict';
-module.exports = (sequelize, DataTypes) => {
+const todo_list = (sequelize, DataTypes) => {
   const todo_list = sequelize.define('todo_list', {
     id: {
       type: DataTypes.INTEGER,
@@ -18,3 +18,5 @@ module.exports = (sequelize, DataTypes) => {
   };
   return todo_list;
 };
+
+export default todo_list;

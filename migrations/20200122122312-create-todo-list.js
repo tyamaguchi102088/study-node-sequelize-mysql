@@ -1,5 +1,5 @@
 'use strict';
-module.exports = {
+export default {
   up: (queryInterface, Datatype) => {
     return queryInterface.createTable('todo_lists', {
       id: {

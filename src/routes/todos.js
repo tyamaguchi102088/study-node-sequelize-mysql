@@ -1,6 +1,7 @@
-const express = require('express');
+import express from 'express';
+import model from './../../models';
+
 const router = express.Router();
-const model = require('../../models/index.js');
 
 /* GET todo listing. */
 router.get('/', function(req, res, next) {
@@ -89,4 +90,4 @@ router.delete('/:id', function(req, res, next) {
   }))
 });
 
-module.exports = router;
+export default router;

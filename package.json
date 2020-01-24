@@ -4,7 +4,7 @@
   "description": "API for Todo Application using Node x MySql",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/",
+    "dev": "nodemon --exec babel-node src/",
     "test": "echo \"Error: no test specified\" && exit 1",
     "db:migrate": "node_modules/.bin/sequelize db:migrate --env development",
     "db:down": "node_modules/.bin/sequelize db:migrate:undo --env development",
@@ -17,7 +17,13 @@
     "express": "^4.17.1",
     "mysql2": "^2.1.0",
     "nodemon": "^2.0.2",
-    "sequelize": "^5.21.3",
+    "sequelize": "^5.21.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/node": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/register": "^7.8.3",
     "sequelize-cli": "^5.5.1"
   }
 }

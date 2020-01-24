@@ -1,10 +1,11 @@
-const express = require('express');
+import express from 'express';
+import model from './../../models';
+
 const router = express.Router();
-const model = require('../../models/index.js');
 
 /* GET route page. */
 router.get('/', function(req, res, next) {
   return res.send('goto /todos')
 });
 
-module.exports = router;
+export default router;
